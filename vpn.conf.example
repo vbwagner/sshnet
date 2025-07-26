@@ -1,0 +1,13 @@
+# !/bin/sh
+# Config file for  ssh vpn
+#
+# DNS name of server to connect to (required)
+SERVER=wagner.pp.ru
+# IP of this computer in VPN (required)
+MY_IP=192.168.217.194
+# IP of server in VPN (required)
+SERVER_IP=192.168.217.193
+# network to route via server (optional)
+NET=192.168.217.128/25
+# Port for dynamic port forwarding (optional)
+SOCKS_PORT=1080

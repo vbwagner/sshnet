@@ -1,0 +1,15 @@
+#!/bin/sh
+  # Get client and server addresses from the command line
+  server=$1
+  client=$2
+  if  [ -z "$client" ]; then
+  # If nothigh in the command line (forced command) retrieve
+  # client and server command from SSH_ORIGINAL_COMMAND variable
+  client="${SSH_ORIGINAL_COMMAND##* }" 
+  stripparam="${SSH_ORIGINAL_COMMAND% *}"
+  server="${stripparam##* }"
+  fi
+  ip addr add $server peer $client dev $SSH_TUNNEL
+  ip link set $SSH_TUNNEL up
+  # now wait until outher side would break connection
+  cat

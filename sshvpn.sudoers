@@ -1,0 +1,1 @@
+%netdev		ALL=(ALL)	NOPASSWD: /usr/local/bin/sshvpn	

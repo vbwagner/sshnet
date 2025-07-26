@@ -1,0 +1,7 @@
+#!/bin/sh
+. /etc/ssh/vpn.conf
+DEVICE="$1"
+#DEVICE=tun$IFACE
+ip addr add dev "$DEVICE" local "$MY_IP" peer "$SERVER_IP"
+ip link set "$DEVICE" up
+[ -n "$NET" ] && ip route add "$NET" via "$SERVER_IP"

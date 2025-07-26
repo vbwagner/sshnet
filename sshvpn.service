@@ -1,0 +1,13 @@
+[Unit]
+Description=SSH-based VPN
+Docuementation=https://www.wagner.pp.ru/fossil/advice/doc/trunk/ssh.md
+After=network.target
+[Service]
+Type=exec
+User=root
+Restart=on-failure
+RestartSec=15
+ExecStart=/usr/local/bin/sshvpn
+KillSignal=SIGINT
+[Install]
+WantedBy=multi-user.target

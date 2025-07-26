@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$(id -u)" -ne 0 ]; then
+  sudo "$0"
+  exit "$?"
+fi
+if ! [ -f /etc/ssh/vpn.conf ]; then
+   echo "No /etc/ssh/vpn.conf found"
+   exit 1
+fi
+
+. /etc/ssh/vpn.conf
+
+exec ssh -w "any:any" -o LocalCommand="sshnetclient %T"  ${SOCKS_PORT:+-D "localhost:$SOCKS_PORT" } "$SERVER" sshnetsetup "$SERVER_IP" "$MY_IP"
