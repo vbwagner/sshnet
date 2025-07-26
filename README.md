@@ -28,16 +28,16 @@ Server setup
 First of all, we need some configuration on central server.
 
 1. Enable forwarding of packets between clients.
-   Install <sysctl.forward.conf> into `/etc/sysctl.d` as
+   Install [sysctl.forward.conf](sysctl.forward.conf) into `/etc/sysctl.d` as
    `99-forward.conf`and issue command
    `sysctl -p /etc/sysctl.d/99-forward.conf`.
    This file contain line which is equivalent of 
    `echo 1 >/proc/sys/net/ipv4/ip_forward`.
-2. Allow root login and tunnel creation. Install <sshd.sshvpn.config>
+2. Allow root login and tunnel creation. Install [sshd.sshvpn.config](sshd.sshvpn.config)
    into `/etc/ssh/sshd_config.d` as `sshvpn` and restart your `sshd`
    using systemctl (if you don't use systemd, you probably know how to
    restart daemons in your init system).
-3. Install script <sshnetsetup> into /usr/local/bin. This script will be
+3. Install script [sshnetsetup](sshnetsetup) into /usr/local/bin. This script will be
    executed on the server when client connects, and run remain in memory
    until VPN session ends. 
 
@@ -94,17 +94,17 @@ Client machine setup
 On client machine we need to make change to global ssh client
 configuration `/etc/ssh/ssh_config`. We relay on ssh LocalCommand
 feature to configure client side of network  interface and this feature
-is disabled by default. So copy  <sshvpn.ssh_config.d> то
+is disabled by default. So copy  [sshvpn.ssh_config.d](sshvpn.ssh_config.d) то
 `/etc/ssh/ssh_config.d` as `sshvpn.conf`. Next ssh process would read
 this file and consider it part of system-wide configuration.
 
-Than install <sshvpn.sudoers> into /etc/sudoers.d as sshvpn. This would
+Than install [sshvpn.sudoers](sshvpn.sudoers) into /etc/sudoers.d as sshvpn. This would
 allow members of `netdev` group (on Debian it is all interactive users)
 to invoke `sshvpn` script.
 
-Copy <sshnetclient> and <sshvpn> scripts to /usr/local/bin.
+Copy [sshnetclient](sshnetclient) and [sshvpn](sshvpn) scripts to /usr/local/bin.
 
-Now. most important part. Copy <vpn.conf.example> to `/etc/ssh/vpn.conf`
+Now. most important part. Copy [vpn.conf.example](vpn.conf.example) to `/etc/ssh/vpn.conf`
 and edit it to suit your environment. This file is read by both `sshvpn`
 script (which invokes ssh) and `sshnetclient` (which is invoked by ssh
 using LocalCommand).
@@ -153,7 +153,7 @@ But to start vpn automatically on system boot read next chapter.
 Installing ssh vpn as system service
 ------------------------------------
 
-Copy <sshvpn.service> to `/etc/systemd/system`
+Copy [sshvpn.service](sshvpn.service) to `/etc/systemd/system`
 And run
 
 ```
