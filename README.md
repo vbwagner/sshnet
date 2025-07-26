@@ -33,7 +33,7 @@ First of all, we need some configuration on central server.
    `sysctl -p /etc/sysctl.d/99-forward.conf`.
    This file contain line which is equivalent of 
    `echo 1 >/proc/sys/net/ipv4/ip_forward`.
-2. Allow root login and tunnel creation. Install [sshd.sshvpn.config](sshd.sshvpn.config)
+2. Allow root login and tunnel creation. Install [sshvpn.sshd_onfig.d](sshvpn.sshd_config.d)
    into `/etc/ssh/sshd_config.d` as `sshvpn` and restart your `sshd`
    using systemctl (if you don't use systemd, you probably know how to
    restart daemons in your init system).
