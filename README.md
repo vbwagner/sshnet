@@ -130,6 +130,10 @@ You should define following variables:
    process, started with `sshvpn` script would use dynamic port
    forwarding in addition to creation of tun interface. Why keep two ssh
    processes to do these two things, if one would do both.
+6. `OTHER_HOSTS` - if you want to route some other IPs from this client, 
+    list space separated ip-addresses here. These addresses myst be
+	inside network specified by NET variable. Only host routes are
+	supported by now, not networks
 
 
 First connect

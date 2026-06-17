@@ -11,4 +11,4 @@ fi
 
 . /etc/ssh/vpn.conf
 
-exec ssh -w "any:any" -o LocalCommand="sshnetclient %T"  ${SOCKS_PORT:+-D "localhost:$SOCKS_PORT" } "$SERVER" sshnetsetup "$SERVER_IP" "$MY_IP"
+exec ssh -i /root/.ssh/id_ed25519 -w "any:any" -o LocalCommand="sshnetclient %T"  ${SOCKS_PORT:+-D "localhost:$SOCKS_PORT" } "$SERVER" sshnetsetup "$SERVER_IP" "$MY_IP" ${OTHER_HOSTS:+"$OTHER_HOSTS"}

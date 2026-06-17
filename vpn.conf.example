@@ -11,3 +11,5 @@ SERVER_IP=192.168.217.193
 NET=192.168.217.128/25
 # Port for dynamic port forwarding (optional)
 SOCKS_PORT=1080
+# other host which is accessible from server via this client
+OTHER_HOSTS="192.168.217.129 192.168.217.135"
